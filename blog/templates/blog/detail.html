@@ -1,0 +1,20 @@
+{%  extends 'base.html' %}
+
+{%  block content %}
+    <main>
+        <div class="container-fluid">
+            <h2>{{  post.title }} | {{  post.topic }}</h2>
+            <h5>{{  post.author }}, {{  post.published_date }}</h5>
+            <h5>{{  post.published_date }}</h5>
+            <p>{{  post.text }}</p>
+            <h4>Comments</h4>
+            {%  for comment in comments %}
+                {%  if comment.post.id == post.id %}
+                    <h5>{{  comment.author }}</h5>
+                    <h5>{{  comment.published_date }}</h5>
+                    <p>{{  comment.text }}</p>
+                {%  endif %}
+            {% endfor %}
+        </div>
+    </main>
+{%  endblock %}

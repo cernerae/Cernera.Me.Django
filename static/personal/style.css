@@ -1,0 +1,87 @@
+html, body {
+    height: 100%;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    min-width: 100%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
+}
+
+a, h1, h2, h3, h4, h5 {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.bottom-row {
+    padding-top: 50px;
+}
+.navbar-dark {
+    background-color: black !important;
+}
+
+.navbar-nav > li > a {
+    color: rgba(255,255,255,1) !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+img {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width:200px; /* you can use % */
+    height: auto;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    height: 18rem;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    transition: 0.3s;
+    padding-right: 10px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.card:before {
+	content:'';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 18rem;
+	background: rgba(50,70,200,0.2);
+	border-radius: 0px;
+	transition: all 1s ease;
+}
+
+.card:hover:before {
+	width: 100%;
+}
+
+.card:hover:after {
+    content: 'ABOUT';
+	width: 100%;
+}
+
+.my-cards {
+    padding-top: 100px;
+}
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}

@@ -1,0 +1,25 @@
+1. create project
+2. create mysql database
+3. change database settings.py
+4. pip install mysqlclient
+  -- receive this error "command 'cl.exe' failed: No such file or directory"
+  -- need C++ build tools : https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017
+  -- https://www.cs.mcgill.ca/~mxia3/2017/04/05/Compiling-Python-package-with-C-extension-on-Windows-10-and-Visual-Studio-2017/
+  -- pip install wheel
+  -- pip install --only-binary :all: mysqlclient
+5. set STATIC_ROOT in settings.py
+ -- STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+6. python manage.py collectstatic
+
+
+BLOG
+1. python manage.py startapp blog
+2. change cernera_me/settings.py
+  -- path(r'^blog/', include('blog.urls')), NOT YET
+3. add blog to INSTALLED_APPS
+4. add Post model
+5. add Post model to blog/admin.py
+6. createsuperuser
+7. not going to be able to migrate blog until there's a url patten in blog/urls.py
+  -- pip install djangorestframework
+  -- pip install djangorestframework-jwt
