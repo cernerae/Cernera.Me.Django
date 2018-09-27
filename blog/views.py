@@ -6,7 +6,7 @@ from .models import Post, Comment
 class IndexView(generic.ListView):
     context_object_name = 'post_list'
     template_name = 'blog/blog.html'
-    queryset = Post.objects.all()
+    queryset = Post.objects.order_by('-published_date')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

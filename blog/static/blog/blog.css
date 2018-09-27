@@ -1,0 +1,35 @@
+img.banner {
+    padding-top: 0px !important;
+    width: 100% !important; /* you can use % */
+    height: auto !important;
+}
+
+.section-title {
+    padding-left: 20px;
+}
+
+.blog-list {
+    padding-top: 20px;
+}
+
+.col-md-2 {
+    background-color: #e3e3e3;
+}
+
+.col-md-8 {
+    text-align: center;
+}
+
+.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mypost {
+    display: inline-block;
+    text-align: left;
+}
+
+.comment {
+    padding-left: 10px;
+}

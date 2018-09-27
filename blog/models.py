@@ -17,6 +17,7 @@ class Post(models.Model):
         blank=True, null=True
     )
     topic = models.CharField(max_length=25)
+    image = models.CharField(max_length=1000, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
