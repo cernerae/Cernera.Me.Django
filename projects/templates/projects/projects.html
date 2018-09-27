@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="my-cards vertical-center">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="https://github.com/cernerae/Cernera.me">
+                <div class="card" id="mywebsite-card">
+                    <div class="card-body">
+                        <img id="my-website" src="{%  static "projects/img/me_icon.png" %}"
+                             alt="Me Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="https://github.com/cernerae/Log-Scrubber">
+                <div class="card" id="scrubber-card">
+                    <div class="card-body">
+                        <img id="scrubber" src="{%  static "projects/img/scrubber_icon.png" %}"
+                             alt="Scrubber Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="https://github.com/cernerae/Amazon-Reviews-Crawler">
+                <div class="card" id="crawler-card">
+                    <div class="card-body">
+                        <img id="crawler" src="{%  static "projects/img/crawler_icon.jpg" %}"
+                             alt="Crawler Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Works in Progress :)</h2>
+        </div>
+    </div>
+    <!--
+    <div class="row bottom-row">
+        <div class="col-md-4">
+            <a href="https://github.com/cernerae">
+                <div class="card" id="github-card">
+                    <div class="card-body">
+                        <img id="github" src="{%  static "personal/img/github_icon.png" %}"
+                             alt="GitHub Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/hobbies/">
+                <div class="card" id="hobby-card">
+                    <div class="card-body">
+                        <img id="hobbies" src="{%  static "personal/img/hobby_icon.png" %}"
+                             alt="Hobbies Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/signup/">
+                <div class="card" id="person-card">
+                    <div class="card-body">
+                        <img id="person" src="{%  static "personal/img/person_icon.jpg" %}"
+                             alt="Signup Icon">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    -->
+</div>
+{% endblock %}

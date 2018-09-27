@@ -1,11 +1,11 @@
 {%  extends 'base.html' %}
 
 {%  block content %}
-    <main>
+    <div id="home">
         <div class="container-fluid">
             {% block cards %}
                 {% include "cards.html" %}
             {% endblock %}
         </div>
-    </main>
+    </div>
 {%  endblock %}

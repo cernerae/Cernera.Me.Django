@@ -1,9 +1,12 @@
-html, body {
+html, body, section, main {
     height: 100%;
 }
 
+#home {
+    background-color: #292929;
+}
+
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 100vh; /* These two lines are counted as one :-)       */
     min-width: 100%;
 }
@@ -57,7 +60,7 @@ img {
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0, 1);
 }
 
 .card:before {
@@ -67,7 +70,7 @@ img {
 	left: 0px;
 	width: 0px;
 	height: 18rem;
-	background: rgba(50,70,200,0.2);
+	background: rgba(100,0,0,0.2);
 	border-radius: 0px;
 	transition: all 1s ease;
 }
