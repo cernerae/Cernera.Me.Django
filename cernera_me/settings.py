@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import settings_secret as ss
+from .settings_secret import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ss.secret_key
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdownx',
     'personal',
-    'blog'
+    'blog',
+    'projects'
 ]
 
 MIDDLEWARE = [
@@ -80,16 +82,16 @@ WSGI_APPLICATION = 'cernera_me.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': ss.mysql_db_name,
-        'USER': ss.mysql_db_user,
-        'PASSWORD': ss.mysql_db_password,
-        'HOST': ss.server_ip,
+        'NAME': mysql_db_name,
+        'USER': mysql_db_user,
+        'PASSWORD': mysql_db_password,
+        'HOST': server_ip,
         'PORT': '3306',
         'TEST': {
-            'NAME': "{}_test".format(ss.mysql_db_name),
-            'USER': ss.mysql_db_user,
-            'PASSWORD': ss.mysql_db_password,
-            'HOST': ss.server_ip,
+            'NAME': "{}_test".format(mysql_db_name),
+            'USER': mysql_db_user,
+            'PASSWORD': mysql_db_password,
+            'HOST': server_ip,
             'PORT': '3306',
         },
     }

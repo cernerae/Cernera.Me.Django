@@ -26,6 +26,8 @@ urlpatterns = [
     path(r'accounts/', include('django.contrib.auth.urls')),
     path(r'about/', include('personal.urls')),
     path(r'admin/', admin.site.urls),
+    path(r'^markdownx/', include('markdownx.urls')),
     path(r'blog/', include('blog.urls')),
+    path(r'projects/', include('projects.urls')),
     path(r'signup/', personal_views.signup, name='signup'),
 ]
