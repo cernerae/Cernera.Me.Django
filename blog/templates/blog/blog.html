@@ -2,26 +2,37 @@
 
 {% load static %}
 {%  block content %}
-    <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-2 h1 section-title">cernera.blog</span>
-    </nav>
     <img class="banner" src="{% static 'blog/img/python_banner_bw.png' %}" alt="Python Banner">
-    <section class="blog-list">
+    <section class="all-posts">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row w-100">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <h1 class="page-title">All Blog Posts</h1>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            {%  for post in posts %}
+            <div class="row post-row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    {%  for post in posts %}
-                        <div class="comment">
-                            <h1><a href="/blog/{{ post.id }}/">{{  post.title }}</a></h1>
-                            <p>Category: {{  post.topic }}</p>
-                            <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
-                            <br>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="comment">
+                                    <h5 class="card-title"><a href="{%  url 'blog:post_detail' slug=post.slug %}">{{  post.title }}</a></h5>
+                                    <p>Category: {{  post.topic }}</p>
+                                    <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
+                                    <p class="card-text">{{  post.text|safe|slice:"150" }}... </p>
+                                    <i class="fas fa-eye"></i><p class="likes">{{ post.views }}</p>
+                                    <i class="fas fa-heart"></i><p class="likes">{{ post.number_of_likes }}</p>
+                                    <i class="fas fa-comment"></i><p class="views">{{ post.number_of_comments }}</p>
+                                </div>
+                            </div>
                         </div>
-                    {%  endfor %}
                 </div>
                 <div class="col-md-2"></div>
             </div>
+            {%  endfor %}
         </div>
     </section>
 {%  endblock %}

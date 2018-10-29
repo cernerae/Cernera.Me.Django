@@ -20,13 +20,11 @@ from personal import views as personal_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="home.html")),
+    path('', TemplateView.as_view(template_name="home.html"), name='home'),
     path(r'accounts/', include('django.contrib.auth.urls')),
     path(r'about/', include('personal.urls')),
-    path(r'admin/', admin.site.urls),
-    path(r'^markdownx/', include('markdownx.urls')),
+    path(r'admin/', admin.site.urls, name='admin'),
     path(r'blog/', include('blog.urls')),
     path(r'projects/', include('projects.urls')),
     path(r'signup/', personal_views.signup, name='signup'),

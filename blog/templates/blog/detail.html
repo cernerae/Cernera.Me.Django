@@ -1,29 +1,41 @@
 {%  extends 'base.html' %}
 
 {%  block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="mypost">
-                    <h1><a href="/blog/{{ post.id }}/">{{  post.title }}</a></h1>
-                    <p>Category: {{  post.topic }}</p>
-                    <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
-                    <p>
-                        {{ post.text|safe }}
-                    </p>
-                    <hr>
-                    <h4>Comments</h4>
-                    {%  for comment in comments %}
-                        {%  if comment.post.id == post.id %}
-                            <p>By <strong>{{  comment.author }}</strong>, {{  comment.published_date }}</p>
-                            <p>{{  comment.text|safe }}</p>
-                            <hr>
-                        {%  endif %}
-                    {% endfor %}
+    {% block blognav %}
+        {% include "blog/blognav.html" %}
+    {% endblock %}
+    <article>
+        <div class="container-fluid min-100">
+            <div class="row min-100">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="mypost">
+                        <h1 class="post-title"><strong>{{  post.title }}</strong></h1>
+                        <br>
+                        <div class="text-center">
+                            <img class="blog-image" src="{{ post.image }}" alt="Blog Image">
+                        </div>
+                        <br>
+                        <p>Category: {{  post.topic }}</p>
+                        <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
+                        <p>
+                            {{ post.text|safe }}
+                        </p>
+                        <!--
+                        <hr>
+                        <h4>Comments</h4>
+                        {%  for comment in comments %}
+                            {%  if comment.post.id == post.id %}
+                                <p>By <strong>{{  comment.author }}</strong>, {{  comment.published_date }}</p>
+                                <p>{{  comment.text|safe }}</p>
+                                <hr>
+                            {%  endif %}
+                        {% endfor %}
+                        -->
+                    </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-            <div class="col-md-2"></div>
         </div>
-    </div>
+    </article>
 {%  endblock %}
