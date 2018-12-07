@@ -8,4 +8,5 @@ app_name = 'blog'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='post_list'),
     path('<slug>/', views.PostView.as_view(), name='post_detail'),
+    path('like-post/<int:pk>', views.like_post, name='like_post'),
 ]

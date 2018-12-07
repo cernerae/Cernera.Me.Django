@@ -1,24 +1,18 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
-{%  load static %}
-{%  block content %}
-<div class="container-fluid welcome-banner">
-    <div class="col-md-12 welcome-text">
-        <h1 id="welcome-statement">Hi, I'm Ed and I'm a pythonista.</h1>
-        <h2 id="welcome-sub">A data engineer and backend web developer, all in Python.</h2>
-    </div>
-    <img class="banner" id="home-banner" src="{% static 'blog/img/python_banner_bw.png' %}" alt="Python Banner">
-</div>
-<div class="container-fluid">
+{% load static %}
+{% block content %}
+<div class="container-fluid" id="home-banner">
     <div class="col-md-12 text-center">
-        <a href="#card-section" id="servicios"><i class="fa fa-angle-down fa-6x"></i></a>
+        <h1>Hi, I'm Ed and I'm a pythonista.</h1>
+        <h2>A data engineer and backend web developer, all in Python.</h2>
     </div>
 </div>
 <section id="card-section">
-    <div class="container-fluid">
-    {% block cards %}
+    <div class="container">
+        {% block cards %}
         {% include "cards.html" %}
-    {% endblock %}
+        {% endblock %}
     </div>
 </section>
-{%  endblock %}
+{% endblock %}

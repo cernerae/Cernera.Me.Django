@@ -1,0 +1,155 @@
+.fa-ghost {
+    padding-bottom: 10px;
+    padding-top: 100px;
+    color: white;
+}
+
+.fa-pumpkin {
+    color: #ce5801;
+}
+
+.my-ghost {
+    position: relative;
+    -webkit-animation-name: ghost-animation;
+    -webkit-animation-duration: 15s;
+    animation-name: ghost-animation;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes ghost-animation {
+    0% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    10% {
+        color: black;
+        left: 0px;
+        bottom: 100px;
+    }
+
+    20% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    30% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    40% {
+        color: black;
+        left: 100px;
+        bottom: 100px;
+    }
+
+    50% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    60% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    70% {
+        color: white;
+        left: 0px;
+        right: 100px;
+        bottom: 0px;
+    }
+
+    80% {
+        color: black;
+        left: 0px;
+        right: 100px;
+        bottom: 100px;
+    }
+
+    90% {
+        color: white;
+        left: 0px;
+        right: 100px;
+        bottom: 0px;
+    }
+
+    100% {
+        color: white;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+}
+
+/* Standard syntax */
+@keyframes ghost-animation {
+    0% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    10% {
+        color: black;
+        left: 0px;
+        bottom: 100px;
+    }
+
+    20% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    30% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    40% {
+        color: black;
+        left: 100px;
+        bottom: 100px;
+    }
+
+    50% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    70% {
+        color: white;
+        left: -100px;
+        bottom: 0px;
+    }
+
+    80% {
+        color: black;
+        left: -100px;
+        bottom: 100px;
+    }
+
+    90% {
+        color: white;
+        left: -100px;
+        bottom: 0px;
+    }
+
+    100% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+}

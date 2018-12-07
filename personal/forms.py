@@ -1,9 +1,20 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
+from django.forms.widgets import PasswordInput, TextInput
+
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class': 'validate',
+                                                       'placeholder': 'Email'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'placeholder': 'Password'}))
 
 
 class SignUpForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'email', 'password1', 'password2')
+
     username = forms.CharField(max_length=15,
                                required=True,
                                help_text='Required. 15 char max.',
@@ -25,7 +36,3 @@ class SignUpForm(UserCreationForm):
                                 help_text="Retype Password",
                                 widget=forms.PasswordInput(
                                     attrs={'placeholder': '  Confirm Password'}))
-
-    class Meta:
-        model = User
-        fields = ('username', 'first_name', 'email', 'password1', 'password2')

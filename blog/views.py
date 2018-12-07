@@ -1,4 +1,7 @@
 import logging
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import generic
 from .models import Post, Comment, Like
@@ -16,6 +19,8 @@ class IndexView(generic.ListView):
             post.number_of_likes = post.like_set.all().count()
             post.number_of_comments = post.comment_set.all().count()
         context['comments'] = Comment.objects.all()
+        context['user_likes'] = Like.objects.filter(user=self.request.user) \
+            .values_list('post_id', flat=True)
         return context
 
 
@@ -33,3 +38,22 @@ class PostView(generic.DetailView):
         post.views += 1
         post.save()
         return context
+
+
+@login_required
+def like_post(request, pk):
+    if request.method == 'POST':
+        post = Post(pk=pk)
+        user = User(pk=request.user.id)
+        if 'like-post-btn' in request.POST:
+            if not Like.objects.filter(user=user, post=post).first():
+                like = Like(user=user, post=post)
+                like.save()
+                print("Post LIKED!")
+            else:
+                print("Already liked this post!")
+        elif 'unlike-post-btn' in request.POST:
+            like = Like.objects.get(user=user, post=post)
+            like.delete()
+            print("Post UNLIKED!")
+    return redirect('blog:post_list')

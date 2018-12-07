@@ -1,24 +1,50 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
-{%  block content %}
-<div class="container-fluid">
-    <div class="row">
+{% block content %}
+<div class="container-fluid" id="login">
+    <div class="row text-center">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <div class="card align-items-center">
-                <div class="card-body">
+            <div class="card login-card align-items-center">
+                <div class="card-body w-75">
                     <h2 class="card-title">Log In</h2>
                     <hr>
-                    <form method="post">
-                      {% csrf_token %}
-                      {{ form.as_p }}
-                      <button class="btn-success" type="submit">Login</button>
+                    <form class="form-horizontal form" name="LoginForm" method="post">
+                        {% csrf_token %}
+                        {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        {% endif %}
+                        {% for message in messages %}
+                        <div class="alert alert-danger">
+                            <a class="close" href="#" data-dismiss="alert">×</a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                        <div class="control-group">
+                            <div class="controls">
+                                <input class="form-control" type="text" id="username" name="username" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+                            </div>
+                        </div><br>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
-                <p>Don't have an account? <a href="/signup/">Register</a></p>
+                <p>Don't have an account? <a href="{%  url 'signup' %}">Register</a></p>
             </div>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
     </div>
 </div>
-{%  endblock %}
+{% endblock %}
+
+{% block footer %}
+<!-- Mute the footer -->
+{% endblock %}

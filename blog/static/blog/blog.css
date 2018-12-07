@@ -1,14 +1,19 @@
+.post-row p {
+    color: black;
+}
+
 pre {
     background-color: #EFF0F1;
 }
 
 img.banner {
     padding-top: 0px !important;
-    width: 100% !important; /* you can use % */
+    width: 100% !important;
+    /* you can use % */
     height: auto !important;
 }
 
-nav > span > a {
+nav>span>a {
     text-decoration: none;
     color: black;
 }
@@ -25,13 +30,13 @@ nav > span > a {
     padding-left: 20px;
 }
 
-.mypost {
+.blog-post-content {
     display: inline-block;
     text-align: left;
-}
-
-.comment {
-    padding-left: 10px;
+    color: black;
+    background: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 article {
@@ -47,20 +52,48 @@ article {
     padding-top: 25px;
 }
 
-.fa-comment-o, .fa-heart-o {
-    color: gray;
-    font-family: 'Open Sans', sans-serif;
+.fas {
+    color: black;
 }
 
-.likes, .views, .fa-heart, .fa-comment {
-    display: inline;
+.views,
+.likes,
+.comments {
+    display: inline-block;
+    margin-right: 1vh;
 }
 
-.likes, .views, .comments {
-    padding-right: 8px;
+.views-icon,
+.views-count {
+    display: inline-block;
 }
 
-.fa-heart, .fa-comment, .fa-eye {
-    padding-right: 4px;
+.likes-icon,
+.likes-count {
+    display: inline-block;
 }
 
+.comments-icon,
+.comments-count {
+    display: inline-block;
+}
+
+.like-button {
+    transition: all 0.5s ease;
+    color: black;
+}
+
+.like-button:hover {
+    color: red;
+}
+
+.liked-button {
+    color: red;
+}
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+    cursor: pointer;
+}

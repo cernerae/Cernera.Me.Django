@@ -1,4 +1,6 @@
-html, body {
+html,
+body {
+    position: relative;
     background-color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 1);
     font-family: 'Nunito', sans-serif;
@@ -6,6 +8,12 @@ html, body {
     height: 100%;
     min-height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+main {
+    min-height: 100%;
+    position: relative;
 }
 
 .about-me-text {
@@ -13,25 +21,26 @@ html, body {
 }
 
 section {
-    padding-bottom: 200px;
-    padding-top: 100px;
+    height: 100%;
+    margin-bottom: 200px;
+    margin-top: 100px;
 }
 
-h1 {
+.welcome-text {
     color: white;
 }
 
 h2 {
     font-weight: 200;
-    color: white;
 }
 
 input {
-    width: 75%;
-    height: 45px;
     border-radius: 3px;
     border-color: rgba(0, 0, 0, .2);
     background-color: rgba(250, 250, 250, 1);
+    height: 45px;
+    padding-left: 10px;
+    width: 100%;
 }
 
 input:focus,
@@ -45,48 +54,49 @@ button:focus {
     background-color: black !important;
 }
 
+.alt-bg {
+    background-color: black;
+}
+
+.btn-block {
+    width: 100%;
+}
+
 /* Each state */
-a:visited, a:hover, a:focus, a:active {
+a:visited,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
 }
 
-li > a, li > a:hover {
-    color: rgb(255,255,255);
-    color: rgba(255,255,255,1);
+li a,
+li a:hover {
+    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 1);
     text-decoration: none;
 }
 
-.navbar-brand, .navbar-brand:hover {
+.navbar-brand,
+.navbar-brand:hover {
     color: white;
     text-decoration: none;
 }
 
 img {
     height: auto;
-    padding-top: 5px;
     width: 200px;
 }
 
-.top-row {
-    padding-top: 25px;
-}
-
-.bottom-row {
-    padding-bottom: 100px;
-    padding-top: 75px;
-}
-
-.vertical-deck {
-    padding-top: 50px;
-    padding-bottom: 100px;
+.card-row {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .main-card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
     height: 18rem;
-    padding-left: 5px;
-    padding-right: 5px;
     text-align: center;
 }
 
@@ -95,23 +105,19 @@ img {
     border-color: rgba(104, 32, 42, 1) !important;
 }
 
-.main-card-body {
-    padding-bottom: 5px;
-}
-
 /* On mouse-over, add a deeper shadow */
 .main-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .5);
 }
 
 .main-card:before {
-	content:'';
+    content: '';
     height: 18rem;
-	position: absolute;
+    position: absolute;
 }
 
 .main-card:hover:before {
-	width: 100%;
+    width: 100%;
 }
 
 .main-card:hover:after {
@@ -119,24 +125,27 @@ img {
     font-size: 2rem;
 }
 
-.container-fluid {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 footer {
+    position: relative;
+    bottom: 0;
     background-color: black;
     height: 500px;
     width: 100%;
     text-align: center;
-    padding-top:50px;
+    padding-top: 50px;
+}
+
+footer p,
+footer h5 {
+    color: white;
 }
 
 .sign-up-container {
     background-color: black;
     width: 100%;
-    padding-bottom: 300px;
-    padding-top: 100px;
+    margin-bottom: 300px;
+    margin-top: 100px;
 }
 
 .center {
@@ -145,22 +154,11 @@ footer {
 }
 
 .welcome-banner {
-    height: 800px;
     background-color: black;
-}
-
-.welcome-text {
-    padding-bottom: 50px;
-    padding-left: 100px;
-    padding-top: 50px;
 }
 
 .fa-angle-down {
     color: black;
-}
-
-#home-banner {
-    padding-top: 25px;
 }
 
 .overlay {
@@ -178,29 +176,25 @@ footer {
 }
 
 .card:hover .overlay {
-  opacity: 1;
+    opacity: 1;
 }
 
 .card-hover-text {
-  color: white;
-  font-size: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-#welcome-sub {
-    padding-left: 20px;
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .page-title {
     color: black;
-    padding-bottom: 50px;
-    padding-left: 10px;
+    margin-bottom: 50px;
+    margin-left: 10px;
     font-size: 50px;
 }
 
@@ -231,29 +225,142 @@ footer {
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes ghost-animation {
-    0%   {color:white; left:0px; bottom:0px;}
-    10%  {color:black; left:0px; bottom:100px;}
-    20%  {color:white; left:0px; bottom:0px;}
-    30%  {color:white; left:100px; bottom:0px;}
-    40%  {color:black; left:100px; bottom:100px;}
-    50%  {color:white; left:100px; bottom:0px;}
-    60% {color:white; left:0px; bottom:0px;}
-    70%   {color:white; left:0px; right:100px; bottom:0px;}
-    80%  {color:black; left:0px; right:100px; bottom:100px;}
-    90%  {color:white; left:0px; right:100px; bottom:0px;}
-    100%  {color:white; left:0px; right:0px; bottom:0px;}
+    0% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    10% {
+        color: black;
+        left: 0px;
+        bottom: 100px;
+    }
+
+    20% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    30% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    40% {
+        color: black;
+        left: 100px;
+        bottom: 100px;
+    }
+
+    50% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    60% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    70% {
+        color: white;
+        left: 0px;
+        right: 100px;
+        bottom: 0px;
+    }
+
+    80% {
+        color: black;
+        left: 0px;
+        right: 100px;
+        bottom: 100px;
+    }
+
+    90% {
+        color: white;
+        left: 0px;
+        right: 100px;
+        bottom: 0px;
+    }
+
+    100% {
+        color: white;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
 }
 
 /* Standard syntax */
 @keyframes ghost-animation {
-    0%   {color:white; left:0px; bottom:0px;}
-    10%  {color:black; left:0px; bottom:100px;}
-    20%  {color:white; left:0px; bottom:0px;}
-    30%  {color:white; left:100px; bottom:0px;}
-    40%  {color:black; left:100px; bottom:100px;}
-    50%  {color:white; left:100px; bottom:0px;}
-    70%   {color:white; left:-100px; bottom:0px;}
-    80%  {color:black; left:-100px; bottom:100px;}
-    90%  {color:white; left:-100px; bottom:0px;}
-    100%  {color:white; left:0px; bottom:0px;}
+    0% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    10% {
+        color: black;
+        left: 0px;
+        bottom: 100px;
+    }
+
+    20% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+
+    30% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    40% {
+        color: black;
+        left: 100px;
+        bottom: 100px;
+    }
+
+    50% {
+        color: white;
+        left: 100px;
+        bottom: 0px;
+    }
+
+    70% {
+        color: white;
+        left: -100px;
+        bottom: 0px;
+    }
+
+    80% {
+        color: black;
+        left: -100px;
+        bottom: 100px;
+    }
+
+    90% {
+        color: white;
+        left: -100px;
+        bottom: 0px;
+    }
+
+    100% {
+        color: white;
+        left: 0px;
+        bottom: 0px;
+    }
+}
+
+.login-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 100px;
+    margin-bottom: 50px;
 }

@@ -1,27 +1,24 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
-{%  block content %}
-    {% block blognav %}
-        {% include "blog/blognav.html" %}
-    {% endblock %}
-    <article>
-        <div class="container-fluid min-100">
-            <div class="row min-100">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="mypost">
-                        <h1 class="post-title"><strong>{{  post.title }}</strong></h1>
-                        <br>
-                        <div class="text-center">
-                            <img class="blog-image" src="{{ post.image }}" alt="Blog Image">
-                        </div>
-                        <br>
-                        <p>Category: {{  post.topic }}</p>
-                        <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
-                        <p>
-                            {{ post.text|safe }}
-                        </p>
-                        <!--
+{% block content %}
+<article>
+    <div class="container-fluid min-100">
+        <div class="row min-100">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="blog-post-content">
+                    <h1 class="post-title"><strong>{{ post.title }}</strong></h1>
+                    <br>
+                    <div class="text-center">
+                        <img class="blog-image" src="{{ post.image }}" alt="Blog Image">
+                    </div>
+                    <br>
+                    <p>Category: {{ post.topic }}</p>
+                    <p>By <strong>{{ post.author }}</strong>, {{ post.published_date }}</p>
+                    <p>
+                        {{ post.text|safe }}
+                    </p>
+                    <!--
                         <hr>
                         <h4>Comments</h4>
                         {%  for comment in comments %}
@@ -32,10 +29,10 @@
                             {%  endif %}
                         {% endfor %}
                         -->
-                    </div>
                 </div>
-                <div class="col-md-3"></div>
             </div>
+            <div class="col-md-3"></div>
         </div>
-    </article>
-{%  endblock %}
+    </div>
+</article>
+{% endblock %}

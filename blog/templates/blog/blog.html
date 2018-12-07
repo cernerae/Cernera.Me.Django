@@ -1,38 +1,60 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
-{%  block content %}
-    <img class="banner" src="{% static 'blog/img/python_banner_bw.png' %}" alt="Python Banner">
-    <section class="all-posts">
-        <div class="container-fluid">
-            <div class="row w-100">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                    <h1 class="page-title">All Blog Posts</h1>
-                </div>
-                <div class="col-md-6"></div>
+{% block content %}
+<section class="all-posts">
+    <div class="container-fluid">
+        <div class="row w-100">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <h1 class="page-title">All Blog Posts</h1>
             </div>
-            {%  for post in posts %}
-            <div class="row post-row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="comment">
-                                    <h5 class="card-title"><a href="{%  url 'blog:post_detail' slug=post.slug %}">{{  post.title }}</a></h5>
-                                    <p>Category: {{  post.topic }}</p>
-                                    <p>By <strong>{{  post.author }}</strong>, {{  post.published_date }}</p>
-                                    <p class="card-text">{{  post.text|safe|slice:"150" }}... </p>
-                                    <i class="fas fa-eye"></i><p class="likes">{{ post.views }}</p>
-                                    <i class="fas fa-heart"></i><p class="likes">{{ post.number_of_likes }}</p>
-                                    <i class="fas fa-comment"></i><p class="views">{{ post.number_of_comments }}</p>
-                                </div>
+            <div class="col-md-6"></div>
+        </div>
+        {% for post in posts %}
+        <div class="row post-row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{%  url 'blog:post_detail' slug=post.slug %}">
+                                {{ post.title }}</a></h5>
+                        <p>Category: {{ post.topic }}</p>
+                        <p>By <strong>{{ post.author }}</strong>, {{ post.published_date }}</p>
+                        <p class="card-text">{{ post.text|safe|slice:"150" }}... </p>
+                        <div class="post-icons">
+                            <div class="views">
+                                <i class="fas fa-eye views-icon"></i>
+                                <p class="views-count">{{ post.views }}</p>
+                            </div>
+                            <div class="likes">
+                                <form method="POST" class="likes-icon" action="{% url 'blog:like_post' post.id %}">
+                                    {% csrf_token %}
+                                    {% if post.id in user_likes %}
+                                    <button type="submit" class="fabutton" name="unlike-post-btn" data-toggle="tooltip"
+                                        data-placement="bottom" title="Unlike">
+                                        <i class="fas fa-heart liked-button"></i>
+                                    </button>
+                                    {% else %}
+                                    <button type="submit" class="fabutton" name="like-post-btn" data-toggle="tooltip"
+                                        data-placement="bottom" title="Like">
+                                        <i class="fas fa-heart like-button"></i>
+                                    </button>
+                                    {% endif %}
+                                </form>
+                                <p class="likes-count">{{ post.number_of_likes }}</p>
+                            </div>
+                            <div class="comments">
+                                <i class="fas fa-comment comments-icon"></i>
+                                <p class="comments-count">{{ post.number_of_comments }}</p>
                             </div>
                         </div>
+                    </div>
                 </div>
-                <div class="col-md-2"></div>
             </div>
-            {%  endfor %}
+            <div class="col-md-2"></div>
         </div>
-    </section>
-{%  endblock %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

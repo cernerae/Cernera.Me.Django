@@ -52,15 +52,26 @@ article {
     font-family: 'Open Sans', sans-serif;
 }
 
-.likes, .views, .fa-heart, .fa-comment {
+.likes-icon, .views-icon, .comments-icon {
     display: inline;
 }
 
-.likes, .views, .comments {
-    padding-right: 8px;
+.likes-icon, .views-icon, .comments-icon {
+    margin-right: 8px;
 }
 
 .fa-heart, .fa-comment, .fa-eye {
-    padding-right: 4px;
+    margin-right: 4px;
 }
+
+.like-button {
+    transition: all 0.5s ease;
+    color: black;
+}
+
+.like-button:hover {
+    color: red;
+}
+
+
 
