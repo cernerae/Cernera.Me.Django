@@ -19,8 +19,12 @@ class IndexView(generic.ListView):
             post.number_of_likes = post.like_set.all().count()
             post.number_of_comments = post.comment_set.all().count()
         context['comments'] = Comment.objects.all()
-        context['user_likes'] = Like.objects.filter(user=self.request.user) \
-            .values_list('post_id', flat=True)
+        if not self.request.user.is_anonymous:
+            print("User: {}".format(self.request.user))
+            context['user_likes'] = Like.objects.filter(user=self.request.user) \
+                .values_list('post_id', flat=True)
+        else:
+            context['user_likes'] = None
         return context
 
 
@@ -42,7 +46,7 @@ class PostView(generic.DetailView):
 
 @login_required
 def like_post(request, pk):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user:
         post = Post(pk=pk)
         user = User(pk=request.user.id)
         if 'like-post-btn' in request.POST:
