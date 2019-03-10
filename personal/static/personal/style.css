@@ -1,7 +1,8 @@
 :root {
-    --main-primary-color: rgba(0, 0, 0, 1);
-    --main-secondary-color: rgba(35, 35, 35, 1);
     --error-message-red: red;
+    --ivory: rgb(255, 248, 231);
+    --plant-green: rgb(87, 137, 53);
+    --plant-green-hover: rgba(87, 137, 53, 0.75);
 }
 
 html,
@@ -11,19 +12,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans-serif;
-    color: white;
 }
 
-.background-image {
+.background {
     position: fixed;
     height: 100%;
     width: 100%;
-    background-image: url('img/background.jpg');
-    background-size: 100%;
-    -webkit-filter: grayscale(1);
-    -webkit-filter: blur(6px);
-    -webkit-filter: brightness(0.5);
-    filter: grayscale(1) blur(6px) brightness(0.5);
+    background-color: white;
     z-index: -1;
 }
 
@@ -65,21 +60,20 @@ p {
 }
 
 #home-banner {
-    color: white;
     margin-bottom: 12vh;
 }
 
-.bg-dark {
-    background-color: black !important;
+.bg-green {
+    background-color: var(--plant-green);
 }
 
 .btn-primary {
     transition: background-color 0.8s ease;
-    background-color: black;
+    background-color: var(--plant-green);
 }
 
 .btn-primary:hover {
-    background-color: var(--main-secondary-color);
+    background-color: var(--plant-green-hover);
 }
 
 .form-control {
@@ -97,10 +91,9 @@ p {
 }
 
 /* Each state */
-a:visited,
-a:hover,
-a:focus,
-a:active {
+a,
+a:hover {
+    color: var(--plant-green);
     text-decoration: none;
 }
 
@@ -153,7 +146,7 @@ img {
 footer {
     position: relative;
     bottom: 0;
-    background-color: black;
+    background-color: var(--plant-green);
     height: 500px;
     width: 100%;
     text-align: center;
@@ -166,7 +159,7 @@ footer h5 {
 }
 
 #signup {
-    color: black;
+    color: var(--plant-green);
     width: 100%;
 }
 
@@ -185,7 +178,7 @@ footer h5 {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: var(--main-secondary-color);
+    background-color: var(--plant-green);
     border-radius: 2px;
 }
 
@@ -211,7 +204,7 @@ footer h5 {
 
 .login-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    color: black;
+    color: var(--plant-green);
 }
 
 .login-card p {
