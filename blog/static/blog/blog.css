@@ -1,3 +1,14 @@
+.background-image {
+    background-image: none;
+    -webkit-filter: none;
+    filter: none;
+    background-color: white !important;
+}
+
+.all-posts {
+    margin-bottom: 200px;
+}
+
 .post-row p {
     color: black;
 }
@@ -45,6 +56,9 @@ article {
     padding-bottom: 200px;
 }
 
+.page-title {
+    color: black;
+}
 
 .post-title {
     font-size: 30px;
